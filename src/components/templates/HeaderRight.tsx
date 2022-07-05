@@ -10,9 +10,7 @@ const HeaderRight: React.FC<{ navigate: any; route: any }> = (props) => {
     const { mode, setMode } = useThemeMode();
     const [user, setUser] = useUser();
 
-    console.log(props.route);
     const handleSignOut = React.useCallback(() => {
-        console.log(props.navigate);
         userService
             .signOut()
             .then(() => {
