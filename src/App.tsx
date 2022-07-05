@@ -1,25 +1,22 @@
+import React from "react";
 import { registerRootComponent } from "expo";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { ThemeProvider } from "@rneui/themed";
+import theme from "./theme";
+import Screens from "./components/templates/Screens";
+import UserProvider from "./store/User";
+import { StatusBar } from "react-native";
 
 const App: React.FC = () => {
     return (
-        <View style={styles.container}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <ThemeProvider theme={theme}>
+            <UserProvider>
+                <StatusBar />
+                <Screens />
+            </UserProvider>
+        </ThemeProvider>
     );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
-    }
-});
 
 registerRootComponent(App);
